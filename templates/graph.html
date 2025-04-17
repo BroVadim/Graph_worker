@@ -143,19 +143,43 @@
 
                   network = new vis.Network(container, data, options);
 
-                  
 
-                  
+                network.on( 'click', function(properties) {
+                    var ids = properties.nodes;
+                    console.log(ids)
+                    var clickedNodes = nodes.get(ids);
+                    //console.log(properties)
+                    //console.log(clickedNodes['0']['label']);
+                    console.log(clickedNodes['0']);
 
-                  
+                });
+                //console.log(network.nodesHandler.body.nodes['1']['shape']['boundingBox'])
+                
+                //console.log(network['nodesHandler']['body']['nodes'])
+                //console.log(network.body.data.nodes.length)//['nodesHandler']['body'])
 
-
-                  
-
-                  return network;
+                return network;
 
               }
               drawGraph();
+
+                var x = network.nodesHandler.body.nodes[2]['x']
+                var y = network.nodesHandler.body.nodes[2]['y']
+                
+                var canvas = document.querySelector("canvas");
+                //console.log(canvas.getContext)
+                
+                    var ctx = canvas.getContext("2d");
+                    ctx.fillRect(x, y, 25, 25);
+                    //ctx.clearRect(100, 100, 200, 200);
+                    //ctx.strokeRect(50, 50, 50, 50); очистка прямоугольной области
+                
+            // document.onclick = function(e) {
+            //     console.log(e);
+            // };
+
+            // node = nodes.get([2])
+            // console.log(node)
         </script>
     </body>
 </html>
